@@ -1,0 +1,19 @@
+﻿<UserControl
+    x:Class="Client.UI.Controls.uStartMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:buttons="clr-namespace:Client.UI.Controls.Buttons">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Client;component/UI/Dictionaries/CommonStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <buttons:uButtonMain Height="70" Width="190" MouseUp="inflate_Click" Label="ПОПОЛНИТЬ" Margin="0,0,30,0"/>
+            <buttons:uButtonMain Height="70" Width="190" MouseUp="deflate_Click" Label="ВЫПЛАТА"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

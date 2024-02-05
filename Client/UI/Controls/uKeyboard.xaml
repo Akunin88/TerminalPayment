@@ -1,0 +1,38 @@
+﻿<UserControl
+    x:Class="Client.UI.Controls.uKeyboard"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:buttons="clr-namespace:Client.UI.Controls.Buttons">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Client;component/UI/Dictionaries/CommonStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <buttons:uButton Grid.Column="0" Grid.Row="0" Label="1" MouseUp="keyClick" Margin="0,5,5,5" Width="70" Height="70"/>
+        <buttons:uButton Grid.Column="1" Grid.Row="0" Label="2" MouseUp="keyClick" Width="70" Height="70"/>
+        <buttons:uButton Grid.Column="2" Grid.Row="0" Label="3" MouseUp="keyClick" Margin="5,5,0,5" Width="70" Height="70"/>
+        <buttons:uButton Grid.Column="0" Grid.Row="1" Label="4" MouseUp="keyClick" Margin="0,0,5,5" Width="70" Height="70"/>
+        <buttons:uButton Grid.Column="1" Grid.Row="1" Label="5" MouseUp="keyClick" Margin="0,0,0,5" Width="70" Height="70"/>
+        <buttons:uButton Grid.Column="2" Grid.Row="1" Label="6" MouseUp="keyClick" Margin="5,0,0,5" Width="70" Height="70"/>
+        <buttons:uButton Grid.Column="0" Grid.Row="2" Label="7" MouseUp="keyClick" Margin="0,0,5,5" Width="70" Height="70"/>
+        <buttons:uButton Grid.Column="1" Grid.Row="2" Label="8" MouseUp="keyClick" Margin="0,0,0,5" Width="70" Height="70"/>
+        <buttons:uButton Grid.Column="2" Grid.Row="2" Label="9" MouseUp="keyClick" Margin="5,0,0,5" Width="70" Height="70"/>
+        <buttons:uButton Grid.Column="0" Grid.Row="3" Label="C" MouseUp="keyClick" Margin="0,0,5,5" Width="70" Height="70"/>
+        <buttons:uButton Grid.Column="1" Grid.Row="3" Label="0" MouseUp="keyClick" Margin="0,0,0,5" Width="70" Height="70"/>
+        <buttons:uButton Grid.Column="2" Grid.Row="3" Label="←" MouseUp="keyClick" Margin="5,0,0,5" Width="70" Height="70"/>
+    </Grid>
+</UserControl>

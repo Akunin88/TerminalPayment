@@ -1,0 +1,74 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Client;component/UI/Dictionaries/DictionaryMahapps.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Style x:Key="xKeyBordButton" TargetType="Button">
+        <Setter Property="Width" Value="70"/>
+        <Setter Property="Height" Value="70"/>
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="FontWeight" Value="DemiBold"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Background" Value="LightGray"/>
+        <Setter Property="BorderBrush" Value="White"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+    <Style TargetType="Border" x:Key="xBorder">
+        <Setter Property="Background" Value="{StaticResource MahApps.Brushes.Gray10}"/>
+        <Setter Property="CornerRadius" Value="7"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="BorderBrush" Value="{StaticResource MahApps.Brushes.Accent2}"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="BorderThickness" Value="1.5"/>
+        <Setter Property="Padding" Value="0"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="BorderBrush" Value="{StaticResource MahApps.Brushes.AccentBase}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="BorderBrush" Value="{StaticResource MahApps.Brushes.Gray}"/>
+                <Setter Property="Background" Value="{StaticResource MahApps.Brushes.Gray9}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="Border" x:Key="xBorderGridButton" BasedOn="{StaticResource xBorder}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="BorderThickness" Value="3"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="BorderThickness" Value="1"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="xTextBlock" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="FontWeight" Value="DemiBold"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontFamily" Value="Tektur"/>
+    </Style>
+    <Style x:Key="xTextBlockBorderButtonContent" TargetType="TextBlock" BasedOn="{StaticResource xTextBlock}">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="FontWeight" Value="DemiBold"/>
+        <Setter Property="FontSize" Value="28"/>
+        <Setter Property="FontFamily" Value="Tektur"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Border}, Path=IsMouseOver, UpdateSourceTrigger=PropertyChanged}" Value="true">
+                <Setter Property="FontWeight" Value="Bold"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Border}, Path=IsEnabled, UpdateSourceTrigger=PropertyChanged}" Value="false">
+                <Setter Property="Foreground" Value="{StaticResource MahApps.Brushes.Gray}"/>
+                <Setter Property="FontWeight" Value="Normal"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

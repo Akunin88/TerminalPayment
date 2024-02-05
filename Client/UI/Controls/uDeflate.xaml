@@ -1,0 +1,97 @@
+﻿<UserControl
+    x:Class="Client.UI.Controls.uDeflate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Client.UI.Controls"
+    xmlns:buttons="clr-namespace:Client.UI.Controls.Buttons">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Client;component/UI/Dictionaries/CommonStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="66*"/>
+            <ColumnDefinition Width="34*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <TextBlock
+            Grid.Column="0" Grid.Row="0" Style="{StaticResource xTextBlock}" FontSize="14"
+            Text="{Binding Path=DataManager.Title, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical">
+            <TextBlock Text="Введите номер карты:" Style="{StaticResource xTextBlock}" HorizontalAlignment="Left" FontSize="24" Foreground="Gray"/>
+            <Border
+                CornerRadius="15" Width="450" Height="55" HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                Background="White" BorderBrush="LightGray" BorderThickness="1">
+                    <TextBox
+                        x:Name="tbCard" PreviewMouseUp="tbMouseUp" MaxLength="16"
+                        Text="{Binding Path=DataManager.UserInfo.CardNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                        Background="Transparent" BorderThickness="0" Margin="5,0"
+                        FontSize="35" FontFamily="Tektur" FontWeight="Regular" Foreground="Black"
+                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+            </Border>
+            <TextBlock Text="Введите номер телефона:" Style="{StaticResource xTextBlock}" HorizontalAlignment="Left" FontSize="24" Foreground="Gray"/>
+            <Border
+                CornerRadius="15" Width="450" Height="55" HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                Background="White" BorderBrush="LightGray" BorderThickness="1">
+                <TextBox
+                    x:Name="tbPhone" PreviewMouseUp="tbMouseUp" MaxLength="12"
+                    Text="{Binding Path=DataManager.UserInfo.PhoneNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat={}{0:(###)###-####}}"
+                    Background="Transparent" BorderThickness="0" Margin="5,0"
+                    FontSize="35" FontFamily="Tektur" FontWeight="Regular" Foreground="Black"
+                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+            </Border>
+
+            <TextBlock Text="Введите номер телефона для связи" HorizontalAlignment="Left" Foreground="Red" FontSize="12">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource xTextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=tbPhone, Path=Text, UpdateSourceTrigger=PropertyChanged}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName=tbPhone, Path=Text, UpdateSourceTrigger=PropertyChanged}" Value="{x:Null}">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </StackPanel>
+
+        <StackPanel
+            Grid.Column="0" Grid.Row="2"
+            Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <buttons:uButtonMain Height="70" Width="190" Margin="0,0,30,0" MouseUp="apply_Click" Label="OK">
+                <buttons:uButtonMain.Style>
+                    <Style TargetType="buttons:uButtonMain">
+                        <Setter Property="IsEnabled" Value="True"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=tbCard, Path=Text, UpdateSourceTrigger=PropertyChanged}" Value="">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName=tbCard, Path=Text, UpdateSourceTrigger=PropertyChanged}" Value="{x:Null}">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName=tbPhone, Path=Text, UpdateSourceTrigger=PropertyChanged}" Value="">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName=tbPhone, Path=Text, UpdateSourceTrigger=PropertyChanged}" Value="{x:Null}">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </buttons:uButtonMain.Style>
+            </buttons:uButtonMain>
+            <buttons:uButtonMain Height="70" Width="190" MouseUp="cancel_Click" Label="ОТМЕНА"/>
+        </StackPanel>
+        <local:uKeyboard Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" KeyPressed="key_Pressed"/>
+    </Grid>
+</UserControl>

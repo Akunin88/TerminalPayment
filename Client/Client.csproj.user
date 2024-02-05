@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="UI\Controls\uDeflate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Controls\uInflate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Controls\uKeyboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Controls\uStartMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="UI\Controls\Buttons\uButtonMain.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Controls\Buttons\uButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Controls\uDeflate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Controls\uInflate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Controls\uKeyboard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Controls\uStartMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Dictionaries\CommonStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Dictionaries\DictionaryMahapps.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Forms\fMain.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Forms\ErrWin\ErrWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Forms\WaitWindow\fWaitWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
