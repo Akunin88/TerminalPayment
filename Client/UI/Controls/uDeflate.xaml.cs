@@ -23,7 +23,7 @@ namespace Client.UI.Controls
             rw.ShowDialog();
         }
 
-        private void cancel_Click(object sender, MouseButtonEventArgs e) => manager?.SetMode(ControlEnum.StartMenu);
+        private void cancel_Click(object sender, MouseButtonEventArgs e) => manager?.SetMode(ControlEnum.None);
 
         private void tbMouseUp(object sender, MouseButtonEventArgs e)
         {

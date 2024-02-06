@@ -1,6 +1,7 @@
 ﻿using Client.Enums;
 using Client.UI.Controls;
 using Core.EventModels;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 
@@ -9,16 +10,18 @@ namespace Client.Management
     public class ClientManager : PropertyObject
     {
         private Dispatcher dispatcher;
-        private UserControl element, uStartMenu, uInflate, uDeflate;
+        private Visibility isVisible = Visibility.Hidden;
+        private UserControl element, uInflate, uDeflate;
 
         public DataManager DataManager { get; private set; }
         public ControlEnum WorkMode { get; private set; }
+        public Visibility IsVisible { get => isVisible; set { if (isVisible != value) { isVisible = value; raisePropertyChanged(nameof(IsVisible)); } } }
         public UserControl Element { get => element; set { if (element != value) { element = value; raisePropertyChanged(nameof(Element)); } } }
 
         public ClientManager(Dispatcher dispatcher)
         {
             DataManager = new DataManager();
-            SetMode(ControlEnum.StartMenu);
+            SetMode(ControlEnum.None);
             this.dispatcher = dispatcher;
         }
 
@@ -28,17 +31,16 @@ namespace Client.Management
             DataManager.Refresh(mode);
             switch (WorkMode)
             {
-                case ControlEnum.StartMenu:
-                    DataManager.Reset();
-                    uStartMenu = setUComponent(uStartMenu, typeof(uStartMenu));
-                    break;
                 case ControlEnum.InflateBalance:
                     uInflate = setUComponent(uInflate, typeof(uInflate));
+                    IsVisible = Visibility.Visible;
                     break;
                 case ControlEnum.DeflateBalance:
                     uDeflate = setUComponent(uDeflate, typeof(uDeflate));
+                    IsVisible = Visibility.Visible;
                     break;
                 default:
+                    IsVisible = Visibility.Hidden;
                     break;
             }
             raisePropertyChanged(nameof(WorkMode));

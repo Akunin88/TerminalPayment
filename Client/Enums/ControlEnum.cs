@@ -2,7 +2,7 @@
 {
     public enum ControlEnum
     {
-        StartMenu = 0,
+        None = 0,
         InflateBalance = 1,
         DeflateBalance = 2,
     }

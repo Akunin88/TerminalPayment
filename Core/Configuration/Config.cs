@@ -13,6 +13,8 @@ namespace Core.Configuration
 
         public int TerminalId { get; set; } = 1234;
         public int DelayForMainMenuReturnSec { get; set; } = 120;
+        public int PanelLeft { get; set; } = 400;
+        public int PanelTop { get; set; } = 900;
 
         [IgnoreDataMember] public static string TxtLogFileName => Path.Combine(configs_path, "Log.txt");
 

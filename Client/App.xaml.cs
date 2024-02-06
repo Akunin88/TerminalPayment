@@ -1,4 +1,5 @@
 ﻿using Client.UI.ErrWin;
+using Client.UI.Forms;
 using System.Diagnostics;
 using System.Windows;
 
@@ -14,7 +15,7 @@ namespace Client
                 //Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName).First().Kill();
                 throw new Exception("Другой процесс уже активен. Закройте его и повторите.");
             }
-            fMain common = new fMain();
+            fPanel common = new fPanel();
             common.ShowDialog();
             Environment.Exit(0);
         }

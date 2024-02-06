@@ -19,6 +19,9 @@
     <Compile Update="UI\Controls\uStartMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UI\Forms\fPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="UI\Controls\Buttons\uButtonMain.xaml">
@@ -49,6 +52,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UI\Forms\ErrWin\ErrWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Forms\fPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UI\Forms\WaitWindow\fWaitWindow.xaml">

@@ -17,6 +17,7 @@ namespace Client.UI.Forms.WaitWindow
         public fWaitWindow(ClientManager manager)
         {
             InitializeComponent();
+            this.Cursor = System.Windows.Input.Cursors.None;
             this.manager = manager;
             mainCtrl.DataContext = this;
         }
@@ -24,7 +25,7 @@ namespace Client.UI.Forms.WaitWindow
         private void close_Click(object sender, MouseButtonEventArgs e)
         {
             Close();
-            manager?.SetMode(ControlEnum.StartMenu);
+            manager?.SetMode(ControlEnum.None);
         }
 
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)

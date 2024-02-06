@@ -44,7 +44,7 @@ namespace Client.UI.Controls
             }
         }
 
-        private void cancel_Click(object sender, MouseButtonEventArgs e) => manager?.SetMode(ControlEnum.StartMenu);
+        private void cancel_Click(object sender, MouseButtonEventArgs e) => manager?.SetMode(ControlEnum.None);
 
         private void key_Pressed(object sender, char e)
         {

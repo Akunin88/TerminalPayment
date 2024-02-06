@@ -1,19 +1,20 @@
-﻿<UserControl
-    x:Class="Client.UI.Controls.uStartMenu"
+﻿<metro:MetroWindow
+    x:Class="Client.UI.Forms.fPanel"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:buttons="clr-namespace:Client.UI.Controls.Buttons">
-    <UserControl.Resources>
+    xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+    SizeToContent="WidthAndHeight" Topmost="True" TitleBarHeight="0" AllowsTransparency ="True" Background="Transparent" BorderThickness="0">
+    <metro:MetroWindow.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Client;component/UI/Dictionaries/CommonStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-    </UserControl.Resources>
+    </metro:MetroWindow.Resources>
     <Grid>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+        <StackPanel Orientation="Horizontal">
             <Button Width="190" Height="70" Content="ПОПОЛНИТЬ" Style="{StaticResource xNeonButton}" Click="inflate_Click" Margin="0,0,30,0" BorderBrush="#FF6C0BFB"/>
             <Button Width="190" Height="70" Content="ВЫПЛАТА" Style="{StaticResource xNeonButton}" Click="deflate_Click" BorderBrush="#FFFB0B6C"/>
         </StackPanel>
     </Grid>
-</UserControl>
+</metro:MetroWindow>
