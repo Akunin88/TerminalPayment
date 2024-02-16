@@ -76,7 +76,7 @@
         <StackPanel
             Grid.Column="0" Grid.Row="2"
             Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <buttons:uButtonMain Height="70" Width="190" Margin="0,0,30,0" MouseUp="apply_Click" Label="OK">
+            <buttons:uButtonMain Height="70" Width="250" Margin="0,0,15,0" MouseUp="apply_Click" Label="OK">
                 <buttons:uButtonMain.Style>
                     <Style TargetType="buttons:uButtonMain">
                         <Setter Property="IsEnabled" Value="False"/>
@@ -95,7 +95,7 @@
                     </Style>
                 </buttons:uButtonMain.Style>
             </buttons:uButtonMain>
-            <buttons:uButtonMain Height="70" Width="190" MouseUp="cancel_Click" Label="ОТМЕНА"/>
+            <buttons:uButtonMain Height="70" Width="250" MouseUp="cancel_Click" Label="ОТМЕНА"/>
         </StackPanel>
 
         <local:uKeyboard Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" KeyPressed="key_Pressed">

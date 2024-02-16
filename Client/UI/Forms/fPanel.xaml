@@ -13,8 +13,8 @@
     </metro:MetroWindow.Resources>
     <Grid>
         <StackPanel Orientation="Horizontal">
-            <Button Width="190" Height="70" Content="ПОПОЛНИТЬ" Style="{StaticResource xNeonButton}" Click="inflate_Click" Margin="0,0,30,0" BorderBrush="#FF6C0BFB"/>
-            <Button Width="190" Height="70" Content="ВЫПЛАТА" Style="{StaticResource xNeonButton}" Click="deflate_Click" BorderBrush="#FFFB0B6C"/>
+            <Button Width="380" Height="70" Content="ПОПОЛНИТЬ" Style="{StaticResource xNeonButton}" Click="inflate_Click" Margin="0,0,30,0" BorderBrush="#FF6C0BFB"/>
+            <Button Width="380" Height="70" Content="ВЫПЛАТА" Style="{StaticResource xNeonButton}" Click="deflate_Click" BorderBrush="#FFFB0B6C"/>
         </StackPanel>
     </Grid>
 </metro:MetroWindow>
