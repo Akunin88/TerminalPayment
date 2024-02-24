@@ -73,7 +73,7 @@
 
 
     <Style x:Key="xNeonButton" TargetType="Button">
-        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Background" Value="#01FFFFFF"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontFamily" Value="Arial"/>

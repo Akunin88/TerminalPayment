@@ -17,8 +17,8 @@ namespace Client.UI.Controls
     public partial class uInflate : UserControl, INotifyPropertyChanged
     {
         private ClientManager manager => this.DataContext as ClientManager;
-
-        public InflateMode InflateMode { get; set; } = InflateMode.SetAmount;
+        private InflateMode inflateMode = InflateMode.SetAmount;
+        public InflateMode InflateMode { get => inflateMode; set { if (inflateMode != value) { inflateMode = value; raisePropertyChanged(nameof(InflateMode)); } } }
 
         public uInflate()
         {
@@ -34,7 +34,6 @@ namespace Client.UI.Controls
                     if (manager != null)
                         manager.DataManager.Title = "Для пополнения сделайте перевод на эту карту:";
                     InflateMode = InflateMode.ShowPayment;
-                    raisePropertyChanged(nameof(InflateMode));
                     break;
                 case InflateMode.ShowPayment:
                 default:
@@ -72,7 +71,6 @@ namespace Client.UI.Controls
         private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             InflateMode = InflateMode.SetAmount;
-            raisePropertyChanged(nameof(InflateMode));
         }
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };

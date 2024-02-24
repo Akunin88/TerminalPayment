@@ -29,10 +29,12 @@ namespace Client.Management
         {
             WorkMode = mode;
             DataManager.Refresh(mode);
+            DataManager.Reset();
             switch (WorkMode)
             {
                 case ControlEnum.InflateBalance:
                     uInflate = setUComponent(uInflate, typeof(uInflate));
+                    (uInflate as uInflate).InflateMode = InflateMode.SetAmount;
                     IsVisible = Visibility.Visible;
                     break;
                 case ControlEnum.DeflateBalance:

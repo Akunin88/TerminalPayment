@@ -19,7 +19,6 @@ namespace Client.Management
         public DataManager()
         {
             Config = Config.Read();
-
             setReceiver();
         }
 
