@@ -15,6 +15,7 @@ namespace Client.UI.Forms
             Left = config.PanelLeft;
             Top = config.PanelTop;
             mainWindow = new fMain();
+            DataContext = mainWindow.DataContext;
         }
 
         private void inflate_Click(object sender, RoutedEventArgs e)
