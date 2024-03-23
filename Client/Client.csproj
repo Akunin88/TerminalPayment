@@ -10,11 +10,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\apply.png" />
+    <None Remove="Resources\cancel.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\apply.png" />
+    <Resource Include="Resources\cancel.png" />
   </ItemGroup>
 
 </Project>

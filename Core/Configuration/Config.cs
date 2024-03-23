@@ -15,6 +15,8 @@ namespace Core.Configuration
         public int DelayForMainMenuReturnSec { get; set; } = 120;
         public int PanelLeft { get; set; } = 400;
         public int PanelTop { get; set; } = 900;
+        public string ServerAddress { get; set; } = "http://94.103.87.38/terminal.php";
+        public int ServerRequestTimeoutSec { get; set; } = 15;
 
         [IgnoreDataMember] public static string TxtLogFileName => Path.Combine(configs_path, "Log.txt");
 

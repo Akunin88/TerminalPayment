@@ -1,5 +1,6 @@
 ﻿using Client.Enums;
 using Client.UI.Controls;
+using Client.UI.Forms.WaitWindow;
 using Core.EventModels;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,7 +10,7 @@ namespace Client.Management
 {
     public class ClientManager : PropertyObject
     {
-        private Dispatcher dispatcher;
+        public Dispatcher Dispatcher;
         private Visibility isVisible = Visibility.Hidden;
         private UserControl element, uInflate, uDeflate;
 
@@ -22,16 +23,21 @@ namespace Client.Management
         {
             DataManager = new DataManager();
             SetMode(ControlEnum.None);
-            this.dispatcher = dispatcher;
+            this.Dispatcher = dispatcher;
         }
 
         internal void SetMode(ControlEnum mode)
         {
+            bool raise = WorkMode != mode;
             WorkMode = mode;
-            DataManager.Refresh(mode);
-            DataManager.Reset();
             switch (WorkMode)
             {
+                case ControlEnum.RequestBeforeInflate:
+                    fWaitWindow rw = new fWaitWindow(this);
+                    rw.ShowDialog();
+                    if (!string.IsNullOrEmpty(DataManager.ServerInfo.CardNumber))
+                        SetMode(ControlEnum.InflateBalance);
+                    break;
                 case ControlEnum.InflateBalance:
                     uInflate = setUComponent(uInflate, typeof(uInflate));
                     (uInflate as uInflate).InflateMode = InflateMode.SetAmount;
@@ -45,7 +51,8 @@ namespace Client.Management
                     IsVisible = Visibility.Hidden;
                     break;
             }
-            raisePropertyChanged(nameof(WorkMode));
+            if (raise)
+                raisePropertyChanged(nameof(WorkMode));
         }
 
         private UserControl setUComponent(UserControl uc, Type T)
@@ -53,14 +60,14 @@ namespace Client.Management
             if (uc == null)
             {
                 var ctr = T.GetConstructor(Type.EmptyTypes);
-                if (dispatcher == null)
+                if (Dispatcher == null)
                 {
                     uc = ctr.Invoke(null) as UserControl;
                     uc.DataContext = this;
                 }
                 else
                 {
-                    dispatcher.Invoke(() =>
+                    Dispatcher.Invoke(() =>
                     {
                         uc = ctr.Invoke(null) as UserControl;
                         uc.DataContext = this;

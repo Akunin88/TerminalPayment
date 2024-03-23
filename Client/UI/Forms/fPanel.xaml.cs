@@ -20,7 +20,7 @@ namespace Client.UI.Forms
 
         private void inflate_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.ClientManager.SetMode(Enums.ControlEnum.InflateBalance);
+            mainWindow.ClientManager.SetMode(Enums.ControlEnum.RequestBeforeInflate);
         }
 
         private void deflate_Click(object sender, RoutedEventArgs e)

@@ -116,4 +116,15 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="Image" x:Key="xBorderImageContent">
+        <Setter Property="Width" Value="18"/>
+        <Setter Property="Height" Value="18"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Border}, Path=IsMouseOver, UpdateSourceTrigger=PropertyChanged}" Value="true">
+                <Setter Property="Width" Value="22"/>
+                <Setter Property="Height" Value="22"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

@@ -57,6 +57,9 @@
     <Page Update="UI\Forms\fPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="UI\Forms\MessageBox\MessageBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="UI\Forms\WaitWindow\fWaitWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

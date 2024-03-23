@@ -34,6 +34,20 @@ namespace Client.UI.Forms.WaitWindow
                 return;
             switch (manager.WorkMode)
             {
+                case ControlEnum.RequestBeforeInflate:
+                    Task.Run(() =>
+                    {
+                        Thread.Sleep(1000);
+                        if (manager.DataManager.Refresh(ControlEnum.InflateBalance))
+                            manager.Dispatcher.Invoke(() => this.Close());
+                        else
+                        {
+                            Text = "Нет сети!";
+                            ProgressVisible = Visibility.Hidden;
+                            raisePropertyChanged(nameof(Text), nameof(ProgressVisible));
+                        }
+                    });
+                    break;
                 case ControlEnum.InflateBalance:
                     Task.Run(() =>
                     {
