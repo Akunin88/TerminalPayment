@@ -78,11 +78,15 @@ namespace Client.Management
             {
                 return "Нет сети!";
             }
+            finally
+            {
+                UserInfo.Clear();
+            }
         }
 
         internal string SendMoneyToServer()
         {
-            if (ServerInfo.CardNumber is null)
+            if (string.IsNullOrEmpty(ServerInfo.CardNumber))
                 return "Нет интернета!";
             try
             {
@@ -103,6 +107,10 @@ namespace Client.Management
             {
                 return "Нет интернета!";
             }
+            finally
+            {
+                ServerInfo.Clear();
+            }
         }
 
         private static object sync = new object();
@@ -121,13 +129,13 @@ namespace Client.Management
                     using (Stream requestStream = httpWebRequest.GetRequestStream())
                         requestStream.Write(bytes, 0, bytes.Length);
                     using (Stream responseStream = httpWebRequest.GetResponse().GetResponseStream())
-                        using (StreamReader streamReader = new StreamReader(responseStream, Encoding.UTF8))
-                            using (XmlReader xmlReader = XmlReader.Create(new StringReader(streamReader.ReadLine())))
-                            {
-                                XmlDocument xmlDocument = new XmlDocument();
-                                xmlDocument.Load(xmlReader);
-                                xmlElement = xmlDocument.DocumentElement;
-                            }
+                    using (StreamReader streamReader = new StreamReader(responseStream, Encoding.UTF8))
+                    using (XmlReader xmlReader = XmlReader.Create(new StringReader(streamReader.ReadLine())))
+                    {
+                        XmlDocument xmlDocument = new XmlDocument();
+                        xmlDocument.Load(xmlReader);
+                        xmlElement = xmlDocument.DocumentElement;
+                    }
                 }
                 catch
                 {
